@@ -1,0 +1,123 @@
+from PyQt6.QtWidgets import QWidget, QApplication, QLineEdit, QPushButton, QGridLayout
+from PyQt6.QtCore import Qt, QSize
+import sys
+#class ve fonk tanımlama
+class Calculator(QWidget):
+    def __init__(self):
+        super().__init__()
+        self.setWindowTitle("Hesap Makinesi Uygulaması")
+        self.setGeometry(100,100,300,325)
+#grid tanımlanması 4x4 ve aralarıdaki boşluk
+        self.layout = QGridLayout()
+        self.layout.setSpacing(2)
+#yazım alanı yükseklik , font ayarlaması , widget ekleme ve konumu
+        self.line_area = QLineEdit()
+        self.line_area.setReadOnly(True)
+        self.line_area.setMinimumSize(QSize(0, 50))
+        self.line_area.setAlignment(Qt.AlignmentFlag.AlignRight)
+        font = self.line_area.font()
+        font.setPointSize(18)
+        self.line_area.setFont(font)
+        self.layout.addWidget(self.line_area,0,0,1,3)
+#buton tanımalama , boyut , konumu ve butona click fonksiyonu çağırma(fonksiyonda yapacağı görev)
+        self.dot = QPushButton(".")
+        self.dot.setMinimumSize(QSize(0, 59))
+        self.dot.clicked.connect(self.button_click)
+        self.layout.addWidget(self.dot, 4, 0)
+        self.zero = QPushButton("0")
+        self.zero.setMinimumSize(QSize(0, 59))
+        self.zero.clicked.connect(self.button_click)
+        self.layout.addWidget(self.zero, 4, 1)
+        self.equal = QPushButton("=")
+        self.equal.setMinimumSize(QSize(0, 59))
+        self.equal.setStyleSheet("background-color: blue")
+        self.equal.clicked.connect(self.button_click)
+        self.layout.addWidget(self.equal, 4, 2)
+        self.div = QPushButton("/")
+        self.div.setMinimumSize(QSize(0, 59))
+        self.div.clicked.connect(self.button_click)
+        self.layout.addWidget(self.div, 4, 3)
+
+        self.one = QPushButton("1")
+        self.one.setMinimumSize(QSize(0, 59))
+        self.one.clicked.connect(self.button_click)
+        self.layout.addWidget(self.one, 3, 0)
+        self.two = QPushButton("2")
+        self.two.setMinimumSize(QSize(0, 59))
+        self.two.clicked.connect(self.button_click)
+        self.layout.addWidget(self.two, 3, 1)
+        self.three = QPushButton("3")
+        self.three.setMinimumSize(QSize(0, 59))
+        self.three.clicked.connect(self.button_click)
+        self.layout.addWidget(self.three, 3, 2)
+        self.multi = QPushButton("*")
+        self.multi.setMinimumSize(QSize(0, 59))
+        self.multi.clicked.connect(self.button_click)
+        self.layout.addWidget(self.multi, 3, 3)
+
+        self.four = QPushButton("4")
+        self.four.setMinimumSize(QSize(0, 59))
+        self.four.clicked.connect(self.button_click)
+        self.layout.addWidget(self.four, 2, 0)
+        self.five = QPushButton("5")
+        self.five.setMinimumSize(QSize(0, 59))
+        self.five.clicked.connect(self.button_click)
+        self.layout.addWidget(self.five, 2, 1)
+        self.six = QPushButton("6")
+        self.six.setMinimumSize(QSize(0, 59))
+        self.six.clicked.connect(self.button_click)
+        self.layout.addWidget(self.six, 2, 2)
+        self.sub = QPushButton("-")
+        self.sub.setMinimumSize(QSize(0, 59))
+        self.sub.clicked.connect(self.button_click)
+        self.layout.addWidget(self.sub, 2, 3)
+
+        self.seven = QPushButton("7")
+        self.seven.setMinimumSize(QSize(0, 59))
+        self.seven.clicked.connect(self.button_click)
+        self.layout.addWidget(self.seven, 1, 0)
+        self.eight = QPushButton("8")
+        self.eight.setMinimumSize(QSize(0, 59))
+        self.eight.clicked.connect(self.button_click)
+        self.layout.addWidget(self.eight, 1, 1)
+        self.nine = QPushButton("9")
+        self.nine.setMinimumSize(QSize(0, 59))
+        self.nine.clicked.connect(self.button_click)
+        self.layout.addWidget(self.nine, 1, 2)
+        self.sum = QPushButton("+")
+        self.sum.setMinimumSize(QSize(0, 59))
+        self.sum.clicked.connect(self.button_click)
+        self.layout.addWidget(self.sum, 1, 3)
+
+        self.clear = QPushButton("C")
+        self.clear.setMinimumSize(QSize(0, 59))
+        self.clear.setStyleSheet("background-color: lightblue")
+        self.clear.clicked.connect(self.button_click)
+        self.layout.addWidget(self.clear, 0, 3)
+        self.setLayout(self.layout)
+#butonların yapacağı görev (eval fonksiyonu hesaplama için kullanılır)
+    def button_click(self):
+        sender = self.sender()
+        text = sender.text()
+        current_text = self.line_area.text()
+
+        if text == "=":
+            try:
+                result = str(eval(current_text))
+                self.line_area.setText(result)
+            except Exception:
+                self.line_area.setText("Error")
+                self.line_area.setStyleSheet("color: red;")
+        elif text == "C":
+            self.line_area.clear()
+            self.line_area.setStyleSheet("color: black;")
+        else:
+            self.line_area.setText(current_text + text)
+
+#standart eklenecektir. sistemin çalışması için gerekli kodlar
+#uygulama tanımlama, class çalıştırma, ekrana getirme ve system exit butonuna basana kadar kalma
+if __name__ == "__main__":
+    app = QApplication(sys.argv)
+    calc = Calculator()
+    calc.show()
+    sys.exit(app.exec())
