@@ -1,0 +1,6 @@
+<RCC>
+  <qresource prefix="icons">
+    <file>edit-32.png</file>
+    <file>edit-25.png</file>
+  </qresource>
+</RCC>
