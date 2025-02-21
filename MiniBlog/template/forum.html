@@ -1,0 +1,30 @@
+{% extends "layout.html" %}
+
+{% block body %}
+<div class="container">
+
+    <h3>Forum Page</h3>
+    <hr>
+    {% if liste %}
+    <form action="/search" method="post">
+        <input type="text" name = "keyword" class="input-sm" maxlenght="64" placeholder="Ara.." />
+        <button type="submit" class="btn btn-danger">Ara</button>
+    </form>
+    <hr>
+    <ul class="list-group">
+        {% for article in liste %}
+        <li class="list-group-item"><a href="/contents/{{article.id}}">{{article.title}}</a></li>    
+        {% endfor %}
+    </ul>
+    
+    {% else %}
+    <div class = "alert alert-danger">Bu Makale Bulunmamaktadır</div>
+    {% endif %}
+
+
+
+</div>
+
+
+
+{% endblock body %}
