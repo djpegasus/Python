@@ -1,0 +1,15 @@
+{% extends "layouts/indexlayout.html" %}
+{% block bodyarea %}
+<div class="container">
+    <h2>Login Page</h2>
+    <hr>
+    {% from "includes/formhelpers.html" import render_field %}
+    <form method=post>
+        <dl>
+            {{ render_field(form.username, class="form-control") }}
+            {{ render_field(form.password, class="form-control") }}
+        </dl>
+        <button type=submit class="btn btn-outline-primary">Login</button>
+    </form>
+</div>
+{% endblock bodyarea %}

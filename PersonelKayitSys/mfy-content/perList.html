@@ -1,0 +1,48 @@
+{% extends "layouts/layout.html" %}
+
+{% block layoutarea %}
+<div class="container">
+    <h2>Personel Listesi</h2>
+    <hr>
+    <table class="table table-bordered">
+        <thead>
+            <tr class="text-center">
+                <th scope="col">Id</th>
+                <th scope="col">Adı</th>
+                <th scope="col">Soyadı</th>
+                <th scope="col">Departman</th>
+                <th scope="col">Unvan</th>
+                <th scope="col">E-Posta</th>
+                <th scope="col">Telefon</th>
+                <th scope="col">Yaş</th>
+                <th scope="col">Maaş</th>
+                <th scope="col">İçerik Oku</th>
+                <th scope="col">İçerik Düzelt</th>
+                <th scope="col">Silme</th>
+            </tr>
+        </thead>
+        <tbody>
+            {% for i in personel %}
+                <tr class="text-center">
+                    <th scope="row">{{i.id}}</th>
+                    <td>{{i.name}}</td>
+                    <td>{{i.surname}}</td>
+                    <td>{{i.dept}}</td>
+                    <td>{{i.unvan}}</td>
+                    <td>{{i.email}}</td>
+                    <td>{{i.phone}}</td>
+                    <td>{{i.age}}</td>
+                    <td>{{i.salary}}</td>
+                    <td><a href="/readPage/{{i.id}}" class="btn btn-success">Oku</a></td>
+                    <td><a href="/updatePage/{{i.id}}" class="btn btn-success">Düzelt</a></td>
+                    <td><a href="/delete/{{i.id}}" class="btn btn-danger">Sil</a></td>
+                </tr>
+            {% endfor %}
+        </tbody>
+    </table>
+
+
+
+</div>
+
+{% endblock layoutarea %}
