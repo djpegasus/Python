@@ -1,0 +1,20 @@
+{% extends "navbar/i_layout.html" %}
+{% block i_body %}
+{% include "navbar/i_bar.html" %}
+<div class="container">
+    <h2>Personel Sicil Sayfası</h2>
+    <hr>
+    <form action="/" method="post">
+        <div class="input-group mb-3">
+            <span class="input-group-text" id="basic-addon1">Username</span>
+            <input type="text" class="form-control" name = "username" placeholder="Username Entered...." aria-label="Username" aria-describedby="basic-addon1">
+        </div>
+        <div class="input-group mb-3">
+            <span class="input-group-text" id="basic-addon1">Password</span>
+            <input type="text" class="form-control" name = "password" placeholder="Password Entered...." aria-label="Username" aria-describedby="basic-addon1">
+        </div>
+        <button type="Submit" class="btn btn-primary">Login</button>
+        <a type = "button" class="btn btn-danger" href="/register">Register</a>
+    </form>
+</div>
+{% endblock i_body %}

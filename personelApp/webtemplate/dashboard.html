@@ -1,0 +1,46 @@
+{% extends "layout.html" %}
+{% block web_body %}
+{% include "navbar/navbar.html" %}
+<div class="container">
+    <h2>Dashboard</h2>
+    <hr>
+    <table class="table">
+        <thead class="table-dark">
+          <tr>
+            <th scope="col">Id</th>
+            <th scope="col">Adı</th>
+            <th scope="col">Soyadı</th>
+            <th scope="col">E-Posta</th>
+            <th scope="col">Görevi</th>
+            <th scope="col">Maaş</th>
+            <th scope="col">Durumu</th>
+            <th scope="col">Aktif/Pasif</th>
+            <th scope="col">Silme</th>
+          </tr>
+        </thead>
+        <tbody>
+          {% for user in users %}
+            <tr>
+                <th scope="row">{{user.id}}</th>
+                <td>{{user.name}}</td>
+                <td>{{user.surname}}</td>
+                <td>{{user.email}}</td>
+                <td>{{user.job}}</td>
+                <td>{{user.maas}}</td>
+                {% if user.status == False %}
+                    <td>Pasif</td>
+                {% else %}
+                    <td>Aktif</td>
+                {% endif %}
+                <td><a href="/status/{{user.id}}" class="btn btn-danger">Aktif/Pasif</a></td>
+                <td><a href="/delete/{{user.id}}" class="btn btn-danger">Sil</a></td>
+            </tr>
+          {% endfor %}
+        </tbody>
+      </table>
+
+</div>
+
+
+
+{% endblock web_body %}

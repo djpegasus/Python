@@ -1,0 +1,37 @@
+{% extends "layout.html" %}
+{% block web_body %}
+{% include "navbar/navbar.html" %}
+<div class="container">
+    <h2>Personel Ekle</h2>
+    <hr>
+    <form action="addPer" method="post">
+        <div class="input-group mb-3">
+            <span class="input-group-text" id="basic-addon1">Adı</span>
+            <input type="text" class="form-control" name = "name" placeholder="Please Entered...." aria-label="Name" aria-describedby="basic-addon1">
+        </div>
+        <div class="input-group mb-3">
+            <span class="input-group-text" id="basic-addon1">Soyadı</span>
+            <input type="text" class="form-control" name = "surname" placeholder="Please Entered...." aria-label="Surname" aria-describedby="basic-addon1">
+        </div>
+        <div class="input-group mb-3">
+            <span class="input-group-text" id="basic-addon1">E-Posta</span>
+            <input type="text" class="form-control" name = "email" placeholder="Please Entered...." aria-label="Email" aria-describedby="basic-addon1">
+        </div>
+        <div class="input-group mb-3">
+            <span class="input-group-text" id="basic-addon1">Görevi</span>
+            <input type="text" class="form-control" name = "job" placeholder="Please Entered...." aria-label="Job" aria-describedby="basic-addon1">
+        </div>
+        <div class="input-group mb-3">
+            <span class="input-group-text" id="basic-addon1">Maaşı</span>
+            <input type="text" class="form-control" name = "maas" placeholder="Please Entered...." aria-label="Maas" aria-describedby="basic-addon1">
+        </div>
+        <button type="submit" class="btn btn-outline-success">Register</button>
+        <button type="reset" class="btn btn-outline-danger">Reset</button>
+        <button type="button" class="btn btn-outline-primary" onclick="location.href='dashboard'">Dashboard</button>
+    </form>
+
+</div>
+
+
+
+{% endblock web_body %}
