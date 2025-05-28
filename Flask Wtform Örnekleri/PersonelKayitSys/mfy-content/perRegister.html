@@ -1,0 +1,23 @@
+{% extends "layouts/layout.html" %}
+
+{% block layoutarea %}
+<div class="container">
+    <h2>Personel Register Page</h2>
+    <hr>
+    {% from "includes/formhelpers.html" import render_field %}
+    <form method=post>
+        <dl>
+            {{ render_field(form.name, class="form-control") }}
+            {{ render_field(form.surname, class="form-control") }}
+            {{ render_field(form.dept, class="form-control") }}
+            {{ render_field(form.unvan, class="form-control") }}
+            {{ render_field(form.email, class="form-control") }}
+            {{ render_field(form.phone, class="form-control") }}
+            {{ render_field(form.age, class="form-control") }}
+            {{ render_field(form.salary, class="form-control") }}
+        </dl>
+        <button type=submit class="btn btn-outline-primary">Kaydet</button>
+    </form>
+</div>
+
+{% endblock layoutarea %}

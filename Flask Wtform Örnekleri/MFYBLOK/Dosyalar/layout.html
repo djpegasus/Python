@@ -1,0 +1,22 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>
+        {% block title %}Layout{% endblock %}
+    </title>
+</head>
+<body>
+    <p>Layout Sayfasıdır</p>
+
+    {% block layout %}
+    <p>Layout Block Alanı...</p>
+    {% endblock %}
+
+    <p>Layout alt yazıları</p>
+    {% block about %}
+    <p>Layout içinde about Block Alanı...</p>
+    {% endblock %}
+</body>
+</html>

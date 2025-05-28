@@ -1,0 +1,47 @@
+{% extends "layouts/layout.html" %}
+
+{% block layoutarea %}
+<div class="container">
+    <h3>Update Sayfası</h3>
+    <hr>
+    <form action="/update" method="POST">
+        <div class="mb-3 row">
+            <label class="col-sm-1 col-form-label">İsim</label>
+            <div class="col-sm-5">
+                <input class="form-control" type="text" name="name" value="{{ session['name'] }}">
+            </div>
+        </div>
+        <div class="mb-3 row">
+            <label class="col-sm-1 col-form-label">Soyisim</label>
+            <div class="col-sm-5">
+                <input class="form-control" type="text" name="surname" value="{{ session['surname'] }}">
+            </div>
+        </div>
+        <div class="mb-3 row">
+            <label class="col-sm-1 col-form-label">Departman</label>
+            <div class="col-sm-5">
+                <input class="form-control" type="text" name="dept" value="{{ session['dept'] }}">
+            </div>
+        </div>
+        <div class="mb-3 row">
+            <label class="col-sm-1 col-form-label">Unvan</label>
+            <div class="col-sm-5">
+                <input class="form-control" type="text" name="unvan" value="{{ session['unvan'] }}">
+            </div>
+        </div>
+        <div class="mb-3 row">
+            <label class="col-sm-1 col-form-label">E-Posta</label>
+            <div class="col-sm-5">
+                <input class="form-control" type="text" name="email" value="{{ session['email'] }}">
+            </div>
+        </div>
+        <div class="mb-3 row">
+            <label class="col-sm-1 col-form-label">Telefon</label>
+            <div class="col-sm-5">
+                <input class="form-control" type="text" name="phone" value="{{ session['phone'] }}">
+            </div>
+        </div>
+        <button type="submit" class="btn btn-outline-primary">Güncelle</button>   
+
+
+{% endblock layoutarea %}

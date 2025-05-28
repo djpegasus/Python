@@ -1,0 +1,25 @@
+{% extends "layout.html" %}
+
+{% block body %}
+<div class="container">
+    <h3>İçerik Sayfası</h3>
+    <hr>
+    {% if content %}
+        <h4>{{content.title}}</h4>
+        <hr>
+        Yazar : {{content.author}}
+        <hr>
+        Tarih : {{content.create_date}}
+        <hr>
+        İçerik:
+        {{content.content | safe }}
+    {% else %}
+        <div class = "alert alert-warning">
+            Böyle Bir Makale Bulunmuyor...
+        </div>
+    {% endif %}
+</div>
+
+{% endblock body %}
+
+

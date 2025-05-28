@@ -1,0 +1,22 @@
+{% extends "layouts/indexlayout.html" %}
+{% block bodyarea %}
+<div class="container">
+    <h2>Register Page</h2>
+    <hr>
+    {% from "includes/formhelpers.html" import render_field %}
+    <form method=post>
+        <dl>
+            {{ render_field(form.name, class="form-control") }}
+            {{ render_field(form.surname, class="form-control") }}
+            {{ render_field(form.dept, class="form-control") }}
+            {{ render_field(form.unvan, class="form-control") }}
+            {{ render_field(form.email, class="form-control") }}
+            {{ render_field(form.phone, class="form-control") }}
+            {{ render_field(form.username, class="form-control") }}
+            {{ render_field(form.password, class="form-control") }}
+            {{ render_field(form.confirm, class="form-control") }}
+        </dl>
+        <button type=submit class="btn btn-outline-primary">Register</button>
+    </form>
+</div>
+{% endblock bodyarea %}

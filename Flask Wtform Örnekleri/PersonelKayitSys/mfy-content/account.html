@@ -1,0 +1,55 @@
+{% extends "layouts/layout.html" %}
+
+{% block layoutarea %}
+<div class="container">
+    <h2>Account Page</h2>
+    <hr>
+        <div class="mb-3 row">
+            <label class="col-sm-1 col-form-label">Username</label>
+            <div class="col-sm-5">
+                <input class="form-control" type="text" value="{{ session['username'] }}" aria-label="readonly input example" readonly>
+            </div>
+            <div class="col-sm-3">
+                <a href="/updatePass"><button type="button" class="btn btn-outline-primary">Şifre Yenile</button></a>
+            </div>
+        </div>
+        <div class="mb-3 row">
+            <label class="col-sm-1 col-form-label">İsim</label>
+            <div class="col-sm-5">
+                <input class="form-control" type="text" value="{{ session['name'] }}" aria-label="readonly input example" readonly>
+            </div>
+        </div>
+        <div class="mb-3 row">
+            <label class="col-sm-1 col-form-label">Soyisim</label>
+            <div class="col-sm-5">
+                <input class="form-control" type="text" value="{{ session['surname'] }}" aria-label="readonly input example" readonly>
+            </div>
+        </div>
+        <div class="mb-3 row">
+            <label class="col-sm-1 col-form-label">Departman</label>
+            <div class="col-sm-5">
+                <input class="form-control" type="text" value="{{ session['dept'] }}" aria-label="readonly input example" readonly>
+            </div>
+        </div>
+        <div class="mb-3 row">
+            <label class="col-sm-1 col-form-label">Unvan</label>
+            <div class="col-sm-5">
+                <input class="form-control" type="text" value="{{ session['unvan'] }}" aria-label="readonly input example" readonly>
+            </div>
+        </div>
+        <div class="mb-3 row">
+            <label class="col-sm-1 col-form-label">E-Posta</label>
+            <div class="col-sm-5">
+                <input class="form-control" type="text" value="{{ session['email'] }}" aria-label="readonly input example" readonly>
+            </div>
+        </div>
+        <div class="mb-3 row">
+            <label class="col-sm-1 col-form-label">Telefon</label>
+            <div class="col-sm-5">
+                <input class="form-control" type="text" value="{{ session['phone'] }}" aria-label="readonly input example" readonly>
+            </div>
+        </div>
+        <a href="/update"><button class="btn btn-outline-primary">Güncelle</button></a>
+       
+</div>
+{% endblock layoutarea %}
